@@ -1,6 +1,7 @@
 from PIL import Image
 import shutil
 import os
+import sys
 
 def set_cell(image: str, id: int, paste: str, big_page: bool):
 	source_image = Image.open(image)
@@ -62,3 +63,4 @@ shutil.make_archive('target/pack', root_dir='./temp', format='zip')
 shutil.rmtree('temp')
 
 print('BUILD SUCCESSFUL.')
+sys.exit(0)
