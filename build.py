@@ -23,7 +23,7 @@ def get_cell(image: str, id: int, big_page: bool):
 	return source_image.crop((x, y, x + cell_size, y + cell_size))
 
 #
-# Build script of Ilya Andreev
+# Build script by Ilya Andreev
 #
 print('*** Build script for custom icons resource-pack ***')	
 	
