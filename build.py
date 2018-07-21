@@ -55,7 +55,7 @@ shutil.copyfile('files/copyright.txt', 'temp/assets/minecraft/textures/font/copy
 
 print('Building zip-file...')	
 if not os.path.exists('target'):
-	mkdir('target')
+	os.mkdir('target')
 
 shutil.make_archive('target/pack', root_dir='./temp', format='zip')
 
