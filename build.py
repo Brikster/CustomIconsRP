@@ -38,7 +38,7 @@ for filename in os.listdir(dir_src):
     shutil.copyfile(dir_src + filename, dir_dst + filename)
 
 for i in range(0, 10):
-	print('Generating page ' + i + '...')
+	print('Generating page ' + str(i) + '...')
 	for k in range(0, 256):	
 		set_cell('temp/assets/minecraft/textures/font/unicode_page_9{page}.png'.format(page=i),
 		k + 1, 'files/images/{page}/{icon}.png'
