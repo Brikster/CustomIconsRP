@@ -1,15 +1,14 @@
 from PIL import Image
 import shutil
 import os
-import sys
 
 def set_cell(image: str, id: int, paste: str, big_page: bool):
 	source_image = Image.open(image)
 	paste_image = Image.open(paste)
 	
 	cell_size = 32 if big_page else 16
-	x = (id - 1) % cell_size
-	y = (id - 1) // cell_size
+	x = (id - 1) % 16
+	y = (id - 1) // 16
 	
 	source_image.paste(paste_image, (cell_size * x, cell_size * y))
 	source_image.save(image)
@@ -18,8 +17,8 @@ def get_cell(image: str, id: int, big_page: bool):
 	source_image = Image.open(image)
 	
 	cell_size = 32 if big_page else 16
-	x = cell_size * ((id - 1) % cell_size)
-	y = cell_size * ((id - 1) // cell_size)
+	x = cell_size * ((id - 1) % 16)
+	y = cell_size * ((id - 1) // 16)
 	
 	return source_image.crop((x, y, x + cell_size, y + cell_size))
 
@@ -63,4 +62,3 @@ shutil.make_archive('target/pack', root_dir='./temp', format='zip')
 shutil.rmtree('temp')
 
 print('BUILD SUCCESSFUL.')
-sys.exit(0)
